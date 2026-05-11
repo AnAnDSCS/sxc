@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>沈闲辞的备忘录</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
+        @import url("https://fontsapi.zeoseven.com/914/main/result.css");
+        @import url("https://fontsapi.zeoseven.com/100/main/result.css");
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: "Handlee", -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
+            font-family: "Planschrift", "Handlee", -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(ellipse at 50% 0%, #1a1a1a 0%, #0d0d0d 60%, #050505 100%);
             min-height: 100vh;
             color: #e4e4e7;
             padding: 20px;
@@ -21,23 +21,23 @@
             margin: 0 auto;
         }
         h1 {
-            font-family: "Permanent Marker", cursive;
+            font-family: "Planschrift", "Permanent Marker", cursive;
             text-align: center;
-            padding: 20px 0;
+            padding: 24px 0;
             font-size: 2em;
             color: #d4af37;
             border-bottom: 2px solid #d4af37;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.35), 0 2px 4px rgba(0, 0, 0, 0.6);
             letter-spacing: 2px;
         }
         .memo {
-            background: #1a1a1a;
+            background: rgba(26, 26, 26, 0.85);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 16px;
             border-left: 3px solid #d4af37;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.03);
         }
         .memo-header {
             display: flex;
@@ -48,13 +48,14 @@
             color: #a1a1aa;
         }
         .memo-tag {
-            font-family: "Handlee", cursive;
+            font-family: "Planschrift", "Handlee", cursive;
             background: linear-gradient(135deg, #d4af37 0%, #b8962e 100%);
             color: #0a0a0a;
             padding: 2px 12px;
             border-radius: 12px;
             font-size: 0.85em;
             font-weight: 500;
+            box-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);
         }
         .memo-content {
             line-height: 1.7;
@@ -66,7 +67,7 @@
             margin-bottom: 30px;
         }
         .date-label {
-            font-family: "Permanent Marker", cursive;
+            font-family: "Planschrift", "Permanent Marker", cursive;
             font-size: 1em;
             color: #d4af37;
             margin-bottom: 12px;
@@ -81,7 +82,7 @@
         .memo-time {
             color: #d4af37;
             opacity: 0.7;
-            font-family: "Handlee", cursive;
+            font-family: "Planschrift", "Handlee", cursive;
         }
     </style>
 </head>
