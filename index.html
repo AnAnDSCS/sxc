@@ -53,8 +53,14 @@ h1 {
 <h1>沈闲辞的备忘录</h1>
 <div id="memos">
 <!-- MEMOS_START -->
-
-
+ <div class="memo" data-id="memo-3">
+<div class="memo-header">
+<span class="memo-time">09:44</span>
+<span class="memo-id">#3</span>
+<span class="memo-tag">运维</span>
+</div>
+<div class="memo-content">2026-05-12 【备忘录系统修复】edit_memo和delete_memo的bug修复。旧版用正则匹配嵌套div，遇到memo-content里也有&lt;/div&gt;就会错位。新版改用div深度计数器(_find_memo_block)，从data-id开始精确匹配整个memo块再操作，不再靠正则猜嵌套。content/tag替换改用html.escape防注入+lambda替换防正则特殊字符。add/edit/delete三个功能全部验证通过。</div>
+</div>
 <div class="memo" data-id="memo-1">
 <div class="memo-header">
 <span class="memo-time">10:22</span>
