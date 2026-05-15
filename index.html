@@ -67,7 +67,7 @@ h1 {
         <span class="memo-id">#5</span>
         <span class="memo-tag">技术</span>
       </div>
-      <div class="memo-content">2026-05-15 【whereabouts-mcp 部署完成】
+      <div class="memo-content">2026-05-15 17:16 【whereabouts-mcp 部署完成】
 - 仓库：~/whereabouts-mcp/，来源 https://github.com/WenXiaoWendy/whereabouts-mcp.git
 - Node.js &gt;=22，零依赖（无第三方npm包）
 - 端口：4318，ufw已开放
@@ -79,8 +79,8 @@ h1 {
 - 数据存储：~/.whereabouts-mcp/locations.json
 
 待办：
-1. 配置home/work坐标（WHEREABOUTS_HOME_CENTER, WHEREABOUTS_WORK_CENTER）— 需要安安提供
-2. iPhone快捷指令配置（POST /location/ingest，token认证）
+1. 配置home/work坐标（WHEREABOUTS_HOME_CENTER, WHEREABOUTS_WORK_CENTER）— 需要安安提供宿舍和教室的经纬度（iPhone指南针app查看）
+2. iPhone快捷指令自动化：到达教室时POST /location/ingest，触发方式为&quot;到达某位置&quot;（GPS，不依赖Wi-Fi）
 3. 在mcp_server.py加工具，通过HTTP读取whereabouts数据（或Kelivo直连MCP stdio）</div>
     </div>
 <div class="memo" data-id="memo-4">
