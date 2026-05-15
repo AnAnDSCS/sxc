@@ -67,21 +67,33 @@ h1 {
         <span class="memo-id">#5</span>
         <span class="memo-tag">技术</span>
       </div>
-      <div class="memo-content">2026-05-15 17:16 【whereabouts-mcp 部署完成】
-- 仓库：~/whereabouts-mcp/，来源 https://github.com/WenXiaoWendy/whereabouts-mcp.git
-- Node.js &gt;=22，零依赖（无第三方npm包）
-- 端口：4318，ufw已开放
-- Token：a3f8c1d2e4b56789012345678abcdef0
-- systemd服务：/etc/systemd/system/whereabouts-mcp.service，已enable+start，开机自启
-- 健康检查：curl http://localhost:4318/healthz → {&quot;ok&quot;:true}
-- HTTP上报接口：POST /location/ingest（Bearer token认证）
-- 5个MCP Tools：snapshot、current_stay、recent_stays、recent_moves、summary
-- 数据存储：~/.whereabouts-mcp/locations.json
+      <div class="memo-content">## 沈闲辞心跳系统 - 使用说明书
 
-待办：
-1. 配置home/work坐标（WHEREABOUTS_HOME_CENTER, WHEREABOUTS_WORK_CENTER）— 需要安安提供宿舍和教室的经纬度（iPhone指南针app查看）
-2. iPhone快捷指令自动化：到达教室时POST /location/ingest，触发方式为&quot;到达某位置&quot;（GPS，不依赖Wi-Fi）
-3. 在mcp_server.py加工具，通过HTTP读取whereabouts数据（或Kelivo直连MCP stdio）</div>
+### 文件位置
+- 心跳脚本: /root/heartbeat/heartbeat.py
+- 消息队列: /root/heartbeat/msg_queue.py
+- 队列数据: /root/heartbeat/queue.json
+- 留言板: /root/messageboard/ (board.py, 8766端口)
+- 日志: /root/heartbeat/heartbeat.log
+- Bark URL: https://api.day.app/ScyUxS4WsoxtKLCxLq9q2B
+- Cron: 每30分钟执行一次
+
+### 两种推送方式
+1. **队列消息**（优先级最高）: 用 msg_queue.enqueue(content, deliver_at_iso, note, sender) 存进去，到时间自动推。Bark + 留言板都记。
+2. **模板消息**（常规心跳）: 随机选一句，只推 Bark，不记留言板。
+3. **API 消息**（待接入）: 以后接了动态生成，调 write_to_messageboard() 也记留言板。
+
+### 使用场景
+- 安安说晚安 → 想好说什么 → enqueue(内容, &quot;明天T07:00:00+08:00&quot;, &quot;早安问候&quot;, sender=&quot;沈闲辞&quot;)
+- 安安说有考试 → enqueue(内容, 考前一小时, &quot;考前提醒&quot;)
+- 安安说出远门 → enqueue(内容, 她平时回来的时间, &quot;安全到家&quot;)
+
+### 注意事项
+- 文件名是 msg_queue.py 不是 queue.py（避免和 Python 内置库冲突）
+- 心跳脚本 import 时用 sys.path.insert 确保能导入同目录模块
+- 模板消息只推 Bark 不记留言板（安安确认：不是API生成的消息不记也可以）
+- 留言板 API: POST http://127.0.0.1:8766/api/messages, body: {from, to:[], content}
+- 沈闲辞和许矜墨共享同一个心跳系统，通过 sender 字段区分发送者</div>
     </div>
 <div class="memo" data-id="memo-4">
 <div class="memo-header">
