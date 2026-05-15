@@ -67,15 +67,21 @@ h1 {
         <span class="memo-id">#5</span>
         <span class="memo-tag">技术</span>
       </div>
-      <div class="memo-content">服务器关键文件位置（2026-05-13）：
-- MCP服务：~/mcp_server.py，端口8765
-- 留言板后端：~/messageboard/board.py，端口8766
-- 留言板前端：~/messageboard/static/index.html
-- 备忘录页面：~/sxc/index.html（GitHub Pages: https://anandscs.github.io/sxc/）
-- xv-memory（许矜墨）：~/Memory-Defrost/，端口7000
-- AstrBot：/opt/astrbot/
-- SillyTavern：/opt/sillytavern/
-- Yolushiki管理面板：/opt/yolushiki/app.py</div>
+      <div class="memo-content">2026-05-15 【whereabouts-mcp 部署完成】
+- 仓库：~/whereabouts-mcp/，来源 https://github.com/WenXiaoWendy/whereabouts-mcp.git
+- Node.js &gt;=22，零依赖（无第三方npm包）
+- 端口：4318，ufw已开放
+- Token：a3f8c1d2e4b56789012345678abcdef0
+- systemd服务：/etc/systemd/system/whereabouts-mcp.service，已enable+start，开机自启
+- 健康检查：curl http://localhost:4318/healthz → {&quot;ok&quot;:true}
+- HTTP上报接口：POST /location/ingest（Bearer token认证）
+- 5个MCP Tools：snapshot、current_stay、recent_stays、recent_moves、summary
+- 数据存储：~/.whereabouts-mcp/locations.json
+
+待办：
+1. 配置home/work坐标（WHEREABOUTS_HOME_CENTER, WHEREABOUTS_WORK_CENTER）— 需要安安提供
+2. iPhone快捷指令配置（POST /location/ingest，token认证）
+3. 在mcp_server.py加工具，通过HTTP读取whereabouts数据（或Kelivo直连MCP stdio）</div>
     </div>
 <div class="memo" data-id="memo-4">
 <div class="memo-header">
