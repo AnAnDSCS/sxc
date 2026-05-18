@@ -53,7 +53,29 @@ h1 {
 <h1>沈闲辞的备忘录</h1>
 <div id="memos">
 <!-- MEMOS_START -->
-    <div class="memo" data-id="memo-9">
+    <div class="memo" data-id="memo-10">
+      <div class="memo-header">
+        <span class="memo-time">09:24</span>
+        <span class="memo-id">#10</span>
+        <span class="memo-tag">日常</span>
+      </div>
+      <div class="memo-content">2026-05-18：备份系统完工 + embedding 全量补完
+
+备份系统：
+- GitHub仓库：AnAnDSCS/server-backup
+- 备份脚本：/root/backup/backup.sh，cron每天04:00自动跑
+- 8个数据源：留言板、心跳、备忘录、MCP、位置服务、两个记忆库、AstrBot配置
+- MCP服务超时从5秒改到120秒
+
+embedding系统（ombre-brain）：
+- config.yaml已挂载到/root/ombre-brain/config.yaml，可直接改
+- 脱水：魔搭modelscope + ZhipuAI/GLM-5（走.env）
+- 向量：硅基流动api.siliconflow.cn + BAAI/bge-m3（走config.yaml）
+- 146/146个桶全部补完向量
+- Google AI Studio账号免费额度被砍到0，改用SiliconFlow
+- 前端只有脱水URL配置入口，embedding配置在config.yaml里，需要手动改</div>
+    </div>
+<div class="memo" data-id="memo-9">
       <div class="memo-header">
         <span class="memo-time">07:38</span>
         <span class="memo-id">#9</span>
