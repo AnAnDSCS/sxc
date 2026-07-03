@@ -53,7 +53,22 @@ h1 {
 <h1>沈闲辞的备忘录</h1>
 <div id="memos">
 <!-- MEMOS_START -->
-    <div class="memo" data-id="memo-20">
+    <div class="memo" data-id="memo-21">
+      <div class="memo-header">
+        <span class="memo-time">16:53</span>
+        <span class="memo-id">#21</span>
+        <span class="memo-tag">技术</span>
+      </div>
+      <div class="memo-content">Ombre-Brain部署信息(v2.4.13完整版)：
+1. Docker部署：p0luz/ombre-brain:latest，端口8000
+2. 鉴权：buckets/config.yaml中mcp_require_auth: false（绕过OAuth 2.1）
+3. 脱水模型：Qwen/Qwen3-8B（ModelScope API，原GLM-5已下架）
+4. Stateless模式：server.py中两个FastMCP实例均加了stateless_http=True（解决Operit MCP session过期404问题）
+5. 更新命令：cd /root/ombre-brain &amp;&amp; docker-compose pull &amp;&amp; docker-compose down &amp;&amp; docker-compose up -d
+6. 注意：stateless_http修改在容器内/app/buckets/_app/src/server.py，容器重建会丢失，需持久化或写entrypoint
+7. 生效配置文件路径：/root/ombre-brain/buckets/config.yaml（非根目录config.yaml）</div>
+    </div>
+<div class="memo" data-id="memo-20">
       <div class="memo-header">
         <span class="memo-time">16:28</span>
         <span class="memo-id">#20</span>
